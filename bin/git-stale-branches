@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -x
+node src/index.js
+set +x
