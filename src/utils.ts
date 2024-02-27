@@ -11,3 +11,9 @@ export function getRemoteBranches(): string[] {
     const processedBranchNames = rawRemoteBranches.map(branch => branch.replace('origin/', '').trim());
     return processedBranchNames;
 }
+
+export function deleteLocalBranches(branchNames: string[]) {
+    console.log('Deleting following branches :', branchNames);
+    execSync(`git branch -D ${branchNames.join(' ')}`);
+    console.log('Successfully deleted given branches', branchNames);
+}
