@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/amankagithub/stale-branches#readme",
   "devDependencies": {
+    "@types/yargs": "^17.0.32",
     "ts-node": "^10.9.2",
     "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "yargs": "^17.7.2"
   }
 }
