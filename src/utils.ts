@@ -21,5 +21,5 @@ export function getRemoteBranches(): string[] {
 export function deleteLocalBranches(branchNames: string[]) {
     console.log('Deleting following branches :', branchNames);
     execSync(`git branch -D ${branchNames.join(' ')}`);
-    console.log('Successfully deleted given branches', branchNames);
+    console.log('Deleted successfully');
 }

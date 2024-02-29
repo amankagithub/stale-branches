@@ -13,16 +13,17 @@ async function main() {
 
     // TODO : check why we are getting type error here
     const { printStaleBranches, deleteStaleBranch } = cli.argv as { printStaleBranches?: boolean, deleteStaleBranch?: boolean };
-    console.log('print', printStaleBranches, 'delete : ', deleteStaleBranch);
 
-
+    if (!printStaleBranches && !deleteStaleBranch) {
+        console.log('Please run the command with one of these options : print-stale-branches (p) or delete-stale-branch (d)');
+        return;
+    }
     const localBranches = getLocalBranches();
-    console.log('Local branches : ', localBranches);
 
     const remoteBranches = getRemoteBranches();
-    console.log('Remote branches : ', remoteBranches);
 
     const staleBranches = localBranches.filter(localBranch => !remoteBranches.includes(localBranch));
+
     if (!staleBranches.length) {
         console.log('There is no stale branches found');
         return;
